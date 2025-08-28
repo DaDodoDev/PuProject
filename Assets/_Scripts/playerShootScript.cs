@@ -2,12 +2,25 @@ using UnityEngine;
 
 public class playerShootScript : MonoBehaviour
 {
-    public Vector2 direction;
+    
+    public playerStats playerStats;
+    public Vector2 shootDirection;
 
-    public KeyCode up;
-    public KeyCode down;
-    public KeyCode left;
-    public KeyCode right;
+    public KeyCode upKey;
+    
+    public KeyCode downKey;
+    
+    public KeyCode leftKey;
+    
+    public KeyCode rightKey;
+
+    public KeyCode directionKey;
+
+    public GameObject bullet;
+
+    public float shootCoolDown;
+
+    public float shootCoolDownNow;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,10 +30,33 @@ public class playerShootScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction = Vector2.zero;
-        if(Input.GetKey(up)){direction += Vector2.up;}
-        if(Input.GetKey(down)){direction += Vector2.down;}
-        if(Input.GetKey(left)){direction += Vector2.left;}
-        if(Input.GetKey(right)){direction += Vector2.right;}
+
+        
+        
+        if(Input.GetKeyDown(upKey)){directionKey = upKey; shootDirection = Vector2.up;}
+        if(Input.GetKeyDown(downKey)){directionKey = downKey; shootDirection = Vector2.down;}
+        if(Input.GetKeyDown(leftKey)){directionKey = leftKey; shootDirection = Vector2.left;}
+        if(Input.GetKeyDown(rightKey)){directionKey = rightKey; shootDirection = Vector2.right;}
+
+        if (Input.GetKeyUp(directionKey))
+        {
+            directionKey = KeyCode.None;
+        }
+
+        shootCoolDownNow += Time.deltaTime;
+        shootCoolDown = playerStats.shootCooldown;
+        if (shootCoolDownNow > shootCoolDown)
+        {
+            if (directionKey != KeyCode.None)
+            {
+                GameObject newBullet = Instantiate(bullet, transform.position + (Vector3)shootDirection*0.5f, Quaternion.identity);
+                newBullet.GetComponent<bulletPrefab>().direction = shootDirection;
+                shootCoolDownNow -= shootCoolDown;
+            }
+            else
+            {
+                shootCoolDownNow = shootCoolDown;
+            }
+        }
     }
 }
