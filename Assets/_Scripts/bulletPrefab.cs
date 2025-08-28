@@ -16,4 +16,18 @@ public class bulletPrefab : MonoBehaviour
     {
         transform.position += (Vector3)direction * (speed * Time.deltaTime); 
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            collision.GetComponent<enemyHealthScript>().TakeDamage(1);
+        }
+
+        if (!collision.CompareTag("Player"))
+        {
+            Destroy(gameObject);    
+        }
+        
+    }
 }
