@@ -19,14 +19,14 @@ public class playerMovementScript : MonoBehaviour
     void Update()
     {
         axis = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        transform.position += (Vector3)velocity * (speed * Time.deltaTime);
     }
 
     void FixedUpdate()
     {
-        velocity =  rb.linearVelocity;
-        velocity += axis;
-        if(drag < 0){drag = 0;}
-        velocity /= drag +1;
+        velocity = rb.linearVelocity;
+        velocity += axis * speed;
+        if(drag < 1){drag = 1;}
+        velocity /= drag ;
+        rb.linearVelocity = velocity;
     }
 }

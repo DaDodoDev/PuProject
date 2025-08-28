@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8525025580700426983}
   - component: {fileID: 3682747777918581161}
   - component: {fileID: 986740800452756364}
-  - component: {fileID: 6797890167831293957}
-  - component: {fileID: 4816800286432796387}
+  - component: {fileID: 5018431658534864105}
+  - component: {fileID: 7345976132088288913}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -102,12 +102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803f60e946aae3341be017a4ce052aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3.5
   axis: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
-  drag: 1.1
-  rb: {fileID: 6797890167831293957}
---- !u!50 &6797890167831293957
+  drag: 1.5
+  rb: {fileID: 5018431658534864105}
+--- !u!50 &5018431658534864105
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &4816800286432796387
+--- !u!61 &7345976132088288913
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
