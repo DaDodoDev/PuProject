@@ -51,6 +51,7 @@ public class playerShootScript : MonoBehaviour
             {
                 GameObject newBullet = Instantiate(bullet, transform.position + (Vector3)shootDirection*0.5f, Quaternion.identity);
                 newBullet.GetComponent<bulletPrefab>().direction = shootDirection;
+                newBullet.GetComponent<bulletPrefab>().speed = playerStats.bulletSpeed;
                 shootCoolDownNow -= shootCoolDown;
             }
             else
