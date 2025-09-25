@@ -23,6 +23,8 @@ public class playerShootScript : MonoBehaviour
     public float shootCoolDownNow;
 
     public float shotGunSpread;
+
+    public Vector2 offset;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -53,7 +55,7 @@ public class playerShootScript : MonoBehaviour
             {
                 for (int i = 0; i < playerStats.shotGunLevel; i++)
                 {
-                    GameObject newBullet = Instantiate(bullet, transform.position + (Vector3)shootDirection*0.5f, Quaternion.identity);
+                    GameObject newBullet = Instantiate(bullet, transform.position + (Vector3)shootDirection*0.5f + (Vector3)offset, Quaternion.identity);
                     newBullet.GetComponent<bulletPrefab>().direction = (shootDirection + new Vector2(Random.Range(-shotGunSpread, shotGunSpread), Random.Range(-shotGunSpread, shotGunSpread)) * (playerStats.shotGunLevel -1)).normalized;
                     
                     newBullet.GetComponent<bulletPrefab>().speed = playerStats.bulletSpeed;

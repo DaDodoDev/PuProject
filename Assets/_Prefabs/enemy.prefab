@@ -166,7 +166,7 @@ MonoBehaviour:
   left: {fileID: 1978373726548267359, guid: 4c2a4f3839c7d9b4ab9bb3a396dea0c3, type: 3}
   right: {fileID: -2586914994728930197, guid: c85e457d4eaa2a64391eefd31ef6ec20, type: 3}
   spriteRenderer: {fileID: 7600729352606583278}
-  timeBeforeMaxSpeed: 3
+  timeBeforeMaxSpeed: 4
   timeBeforeMaxSpeedNow: 0
 --- !u!58 &1025098100461887176
 CircleCollider2D:

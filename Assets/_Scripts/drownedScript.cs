@@ -38,7 +38,7 @@ public class drownedScript : MonoBehaviour
             _shotCooldownNow += Time.deltaTime;
             if (_shotCooldownNow >= shotCooldown)
             {
-                EvilBullet evilBullet = Instantiate(bullet, transform.position, Quaternion.identity).GetComponent<EvilBullet>();
+                EvilBullet evilBullet = Instantiate(bullet, transform.position + new Vector3(0,0.5f,0), Quaternion.identity).GetComponent<EvilBullet>();
                 
                 evilBullet.direction  = (player.position - transform.position).normalized;
                 _shotCooldownNow = 0;

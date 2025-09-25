@@ -6804,12 +6804,20 @@ PrefabInstance:
       value: player
       objectReference: {fileID: 0}
     - target: {fileID: 4290214478738640192, guid: 1847dd5ae8fb0e644b24445fac6c2715, type: 3}
+      propertyPath: offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4290214478738640192, guid: 1847dd5ae8fb0e644b24445fac6c2715, type: 3}
       propertyPath: shotGunSpread
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6927440635156051938, guid: 1847dd5ae8fb0e644b24445fac6c2715, type: 3}
       propertyPath: shotGunLevel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927440635156051938, guid: 1847dd5ae8fb0e644b24445fac6c2715, type: 3}
+      propertyPath: shootCooldown
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7345976132088288913, guid: 1847dd5ae8fb0e644b24445fac6c2715, type: 3}
       propertyPath: m_Size.x
