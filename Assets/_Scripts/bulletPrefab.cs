@@ -5,6 +5,7 @@ public class bulletPrefab : MonoBehaviour
     public Vector2 direction;
 
     public float speed;
+    public LayerMask wall;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,6 +16,8 @@ public class bulletPrefab : MonoBehaviour
     void Update()
     {
         transform.position += (Vector3)direction * (speed * Time.deltaTime); 
+        
+        if(Physics2D.OverlapPoint(transform.position, wall)){Destroy(gameObject);}
     }
 
     void OnTriggerEnter2D(Collider2D collision)

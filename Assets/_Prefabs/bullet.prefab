@@ -103,6 +103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0}
   speed: 3
+  wall:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!58 &-63199068198565880
 CircleCollider2D:
   m_ObjectHideFlags: 0
