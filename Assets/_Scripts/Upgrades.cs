@@ -9,43 +9,59 @@ public class Upgrades : MonoBehaviour
 
 
     public int whatUpgrade;
+    public Sprite[] upgradesSprite;
+    public Sprite healSprite;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         whatUpgrade = Random.Range(0, upgrades.Length);
+        
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        if(healHealth){GetComponent<SpriteRenderer>().sprite = healSprite;}else{GetComponent<SpriteRenderer>().sprite = upgradesSprite[whatUpgrade];}
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) < 1f)
+        if (player != null)
         {
-            if (healHealth)
+            if (Vector2.Distance(transform.position, player.position) < 1f)
             {
-                player.GetComponent<playerHealthScript>().health = player.GetComponent<playerStats>().maxHealth;
-            }
-            else
-            {
-                if (whatUpgrade == 0)
+                if (healHealth)
                 {
-                    player.GetComponent<playerStats>().maxHealth += (int)upgradeValue[whatUpgrade];
-                    player.GetComponent<playerHealthScript>().health += (int)upgradeValue[whatUpgrade];
+                    player.GetComponent<playerHealthScript>().health = player.GetComponent<playerStats>().maxHealth;
                 }
-                else if (whatUpgrade == 1)
+                else
                 {
-                    player.GetComponent<playerStats>().bulletSpeed += upgradeValue[whatUpgrade];
-                }else if (whatUpgrade == 2)
-                {
-                    player.GetComponent<playerStats>().shootCooldown *= upgradeValue[whatUpgrade];
-                }    else if (whatUpgrade == 3)
-                {
-                    player.GetComponent<playerStats>().playerSpeed += upgradeValue[whatUpgrade];
-                }        
+                    if (whatUpgrade == 0)
+                    {
+                        player.GetComponent<playerStats>().maxHealth += (int)upgradeValue[whatUpgrade];
+                        player.GetComponent<playerHealthScript>().health += (int)upgradeValue[whatUpgrade];
+                    }
+                    else if (whatUpgrade == 1)
+                    {
+                        player.GetComponent<playerStats>().bulletSpeed += upgradeValue[whatUpgrade];
+                    }else if (whatUpgrade == 2)
+                    {
+                        player.GetComponent<playerStats>().shootCooldown *= upgradeValue[whatUpgrade];
+                    }    else if (whatUpgrade == 3)
+                    {
+                        player.GetComponent<playerStats>().playerSpeed += upgradeValue[whatUpgrade];
+                    }        
+                    else if (whatUpgrade == 4)
+                    {
+                        player.GetComponent<playerStats>().shotGunLevel += (int)upgradeValue[whatUpgrade];
+                    }
+                }
+    
+                
+                Destroy(transform.parent.gameObject);
             }
-
-            
-            Destroy(transform.parent.gameObject);
         }
+        else
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        
     }
 }
