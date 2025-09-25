@@ -6,7 +6,6 @@ public class playerHealthScript : MonoBehaviour
     public SpriteRenderer[] playerHealth;
 
     public int health;
-    public int maxHealth;
 
     public Color healthColor;
 
@@ -54,7 +53,7 @@ public class playerHealthScript : MonoBehaviour
     IEnumerator Die()
     {
         Destroy(GetComponent<Rigidbody2D>());
-        GetComponent<playerMovementScript>().speed = 0;
+        playerStats.playerSpeed = 0;
         yield return new WaitForSeconds(invisibilityTime);
         SceneManager.LoadScene(sceneName: SceneManager.GetActiveScene().name);
         
