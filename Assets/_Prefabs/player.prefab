@@ -9,13 +9,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8525025580700426983}
+  - component: {fileID: 6927440635156051938}
   - component: {fileID: 3682747777918581161}
   - component: {fileID: 986740800452756364}
   - component: {fileID: 5018431658534864105}
   - component: {fileID: 7345976132088288913}
+  - component: {fileID: 4290214478738640192}
+  - component: {fileID: 439817286282122875}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,6 +38,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6927440635156051938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131905237330710091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0545c4ceb254c04da9267a96c5e8cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootCooldown: 0.25
+  bulletSpeed: 10
 --- !u!212 &3682747777918581161
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -78,7 +95,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803f60e946aae3341be017a4ce052aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 4.5
   axis: {x: 0, y: 0}
   velocity: {x: 0, y: 0}
   drag: 1.5
@@ -180,3 +197,48 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4290214478738640192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131905237330710091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94e58a4e0ca535948ab6dbd6399ac86e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 6927440635156051938}
+  shootDirection: {x: 0, y: 0}
+  upKey: 273
+  downKey: 274
+  leftKey: 276
+  rightKey: 275
+  directionKey: 0
+  bullet: {fileID: 1073079465066836961, guid: b69deccc5ceeacf46a2ce650b641b391, type: 3}
+  shootCoolDown: 0
+  shootCoolDownNow: 0
+--- !u!114 &439817286282122875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131905237330710091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ddb836278ba71e4ba7e346bb81c2186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  health: 3
+  maxHealth: 3
+  healthColor: {r: 1, g: 0, b: 0, a: 1}
+  deadHealthColor: {r: 0.18238991, g: 0.18238991, b: 0.18238991, a: 1}
+  invisibilityTime: 0.5
