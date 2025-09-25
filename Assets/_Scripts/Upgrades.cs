@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Upgrades : MonoBehaviour
 {
+    public bool healHealth;
     public string[] upgrades;
     public float[] upgradeValue;
     public Transform player;
 
-    public GameObject partner;
 
     public int whatUpgrade;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,15 +19,33 @@ public class Upgrades : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) < 0.3f)
+        if (Vector2.Distance(transform.position, player.position) < 1f)
         {
-            if (whatUpgrade == 0)
+            if (healHealth)
             {
-                player.GetComponent<playerStats>().maxHealth += (int)upgradeValue[whatUpgrade];
+                player.GetComponent<playerHealthScript>().health = player.GetComponent<playerStats>().maxHealth;
             }
+            else
+            {
+                if (whatUpgrade == 0)
+                {
+                    player.GetComponent<playerStats>().maxHealth += (int)upgradeValue[whatUpgrade];
+                    player.GetComponent<playerHealthScript>().health += (int)upgradeValue[whatUpgrade];
+                }
+                else if (whatUpgrade == 1)
+                {
+                    player.GetComponent<playerStats>().bulletSpeed += upgradeValue[whatUpgrade];
+                }else if (whatUpgrade == 2)
+                {
+                    player.GetComponent<playerStats>().shootCooldown *= upgradeValue[whatUpgrade];
+                }    else if (whatUpgrade == 3)
+                {
+                    player.GetComponent<playerStats>().playerSpeed += upgradeValue[whatUpgrade];
+                }        
+            }
+
             
-            Destroy(partner);
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 }

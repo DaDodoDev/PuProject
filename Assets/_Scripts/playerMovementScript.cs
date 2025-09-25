@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class playerMovementScript : MonoBehaviour
 {
-    public float speed;
     public Vector2 axis;
 
     public Vector2 velocity;
     public float drag;
     
     public Rigidbody2D rb;
+    public playerStats playerStats;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerStats = GetComponent<playerStats>();
     }
 
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class playerMovementScript : MonoBehaviour
     void FixedUpdate()
     {
         velocity = rb.linearVelocity;
-        velocity += axis * speed;
+        velocity += axis * playerStats.playerSpeed;
         if(drag < 1){drag = 1;}
         velocity /= drag ;
         rb.linearVelocity = velocity;
