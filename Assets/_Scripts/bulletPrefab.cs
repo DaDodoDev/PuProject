@@ -19,7 +19,7 @@ public class bulletPrefab : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        print("kabooooom");
+        
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<enemyHealthScript>().TakeDamage(1);

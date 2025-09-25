@@ -1,5 +1,6 @@
+using System.Collections;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class playerHealthScript : MonoBehaviour
 {
     public SpriteRenderer[] playerHealth;
@@ -12,6 +13,7 @@ public class playerHealthScript : MonoBehaviour
     public Color deadHealthColor;
     public float invisibilityTime;
     private float invisibilityTimeNow;
+    public playerStats playerStats;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,7 +29,7 @@ public class playerHealthScript : MonoBehaviour
             if (health > i)
             {
                 playerHealth[i].color = healthColor;
-            }else if (maxHealth > i)
+            }else if (playerStats.maxHealth > i)
             {
                 playerHealth[i].color = deadHealthColor;
             }
@@ -44,8 +46,17 @@ public class playerHealthScript : MonoBehaviour
         {
             health--;
             invisibilityTimeNow = invisibilityTime;
-            if(health <= 0){Destroy(gameObject);}
+            if(health <= 0){StartCoroutine(Die());}
         }
 
+    }
+
+    IEnumerator Die()
+    {
+        Destroy(GetComponent<Rigidbody2D>());
+        GetComponent<playerMovementScript>().speed = 0;
+        yield return new WaitForSeconds(invisibilityTime);
+        SceneManager.LoadScene(sceneName: SceneManager.GetActiveScene().name);
+        
     }
 }
