@@ -51,6 +51,7 @@ public class Upgrades : MonoBehaviour
                     else if (whatUpgrade == 4)
                     {
                         player.GetComponent<playerStats>().shotGunLevel += (int)upgradeValue[whatUpgrade];
+                        player.GetComponent<playerStats>().shootCooldown *= 1.5f;
                     }
                 }
     
