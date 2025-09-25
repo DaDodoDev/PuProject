@@ -5,7 +5,7 @@ public class enemyScript : MonoBehaviour
     public Transform player;
 
     public float speed;
-    
+    public float drag;
     public Rigidbody2D rb;
 
     public Sprite up;
@@ -13,6 +13,9 @@ public class enemyScript : MonoBehaviour
     public Sprite left;
     public Sprite right;
     public SpriteRenderer spriteRenderer;
+
+    public float timeBeforeMaxSpeed;
+    public float timeBeforeMaxSpeedNow;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,9 +23,11 @@ public class enemyScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        rb.linearVelocity = (player.position-transform.position).normalized * speed ;
+        timeBeforeMaxSpeedNow  += Time.fixedDeltaTime;
+        rb.linearVelocity += (Vector2)(player.position-transform.position).normalized* Mathf.Lerp(0, speed, Mathf.Clamp01(timeBeforeMaxSpeedNow/timeBeforeMaxSpeed)); ;
+        rb.linearVelocity *= drag;
 
         if (Mathf.Abs(rb.linearVelocity.x) > Mathf.Abs(rb.linearVelocity.y))
         {

@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7163b0c4038a42f4b95cd68640cf1ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyOnImpact: 0
 --- !u!114 &4952067384491482994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,13 +158,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 3
+  speed: 0.5
+  drag: 0.95
   rb: {fileID: 8913576242198598776}
   up: {fileID: 8330824845277220213, guid: fc9aab757bf61514b871b56eced97823, type: 3}
   down: {fileID: 671686197075892656, guid: f1e1ab418207050468465e5a5e458839, type: 3}
   left: {fileID: 1978373726548267359, guid: 4c2a4f3839c7d9b4ab9bb3a396dea0c3, type: 3}
   right: {fileID: -2586914994728930197, guid: c85e457d4eaa2a64391eefd31ef6ec20, type: 3}
   spriteRenderer: {fileID: 7600729352606583278}
+  timeBeforeMaxSpeed: 3
+  timeBeforeMaxSpeedNow: 0
 --- !u!58 &1025098100461887176
 CircleCollider2D:
   m_ObjectHideFlags: 0
