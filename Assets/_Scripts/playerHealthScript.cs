@@ -13,6 +13,7 @@ public class playerHealthScript : MonoBehaviour
     public float invisibilityTime;
     private float invisibilityTimeNow;
     public playerStats playerStats;
+    public damageOverlay damageOverlay;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,9 +45,11 @@ public class playerHealthScript : MonoBehaviour
     {
         if (invisibilityTimeNow < 0)
         {
+            damageOverlay.Damage();
             health--;
             invisibilityTimeNow = invisibilityTime;
             if(health <= 0){StartCoroutine(Die());}
+            
         }
 
     }
@@ -54,6 +57,7 @@ public class playerHealthScript : MonoBehaviour
     IEnumerator Die()
     {
         Destroy(GetComponent<Rigidbody2D>());
+        Destroy(transform.GetChild(0).gameObject);
         playerStats.playerSpeed = 0;
         yield return new WaitForSeconds(invisibilityTime);
         SceneManager.LoadScene(sceneName: SceneManager.GetActiveScene().name);
