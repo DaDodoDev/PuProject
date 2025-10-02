@@ -6,6 +6,7 @@ public class bulletPrefab : MonoBehaviour
 
     public float speed;
     public LayerMask wall;
+    public GameObject particle;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +27,8 @@ public class bulletPrefab : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<enemyHealthScript>().TakeDamage(1);
+            GameObject newPart = Instantiate(particle, transform.position, Quaternion.identity);
+            Destroy(newPart, 1f);
         }
 
         if (!collision.CompareTag("Player"))
