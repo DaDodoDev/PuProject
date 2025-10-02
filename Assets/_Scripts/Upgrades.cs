@@ -11,6 +11,8 @@ public class Upgrades : MonoBehaviour
     public int whatUpgrade;
     public Sprite[] upgradesSprite;
     public Sprite healSprite;
+    
+  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

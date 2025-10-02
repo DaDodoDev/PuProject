@@ -7,9 +7,9 @@ public class playerHealthScript : MonoBehaviour
 
     public int health;
 
-    public Color healthColor;
+    public Sprite healthSprite;
 
-    public Color deadHealthColor;
+    public Sprite deadHealthSprite;
     public float invisibilityTime;
     private float invisibilityTimeNow;
     public playerStats playerStats;
@@ -25,12 +25,13 @@ public class playerHealthScript : MonoBehaviour
         invisibilityTimeNow -= Time.deltaTime;
         for (int i = 0; i < playerHealth.Length; i++)
         {
+            playerHealth[i].color = Color.white;
             if (health > i)
             {
-                playerHealth[i].color = healthColor;
+                playerHealth[i].sprite = healthSprite;
             }else if (playerStats.maxHealth > i)
             {
-                playerHealth[i].color = deadHealthColor;
+                playerHealth[i].sprite = deadHealthSprite;
             }
             else
             {
