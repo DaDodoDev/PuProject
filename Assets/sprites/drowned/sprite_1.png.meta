@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cb347e8d21f3ac2498ba265d11f06e76
+guid: 0e03e498bf6442744ad9c163db4e0ed5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3800773259461774788
-    second: drownedmc_01_0
+      213: 2057516106615078274
+    second: sprite_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -73,8 +73,8 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: drownedmc_01_0
+      name: sprite_1_0
       rect:
         serializedVersion: 2
         x: 319
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c323afd9bd0f04bc0800000000000000
-      internalID: -3800773259461774788
+      spriteID: 28dbf6e6ff3cd8c10800000000000000
+      internalID: 2057516106615078274
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      drownedmc_01_0: -3800773259461774788
+      sprite_1_0: 2057516106615078274
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
