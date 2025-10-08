@@ -16,7 +16,7 @@ public class enemyHealthScript : MonoBehaviour
             if (boss)
             {
                 overlay.turnSolid = true;
-                playerHealthScript.health = 10000;
+                playerHealthScript.GetComponent<Collider2D>().enabled = false;
             }
         }
     }

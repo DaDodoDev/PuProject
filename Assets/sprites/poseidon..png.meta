@@ -112,10 +112,10 @@ TextureImporter:
       name: poseidon._0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 39
-        width: 63
-        height: 56
+        x: 0
+        y: 0
+        width: 124
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: poseidon._1
       rect:
         serializedVersion: 2
-        x: 163
-        y: 39
-        width: 46
-        height: 60
+        x: 124
+        y: 0
+        width: 124
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +156,10 @@ TextureImporter:
       name: poseidon._2
       rect:
         serializedVersion: 2
-        x: 268
-        y: 39
-        width: 69
-        height: 55
+        x: 248
+        y: 0
+        width: 124
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: poseidon._3
       rect:
         serializedVersion: 2
-        x: 392
-        y: 39
-        width: 59
-        height: 49
+        x: 372
+        y: 0
+        width: 124
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 12eedf38e92772344800bc809485ca8e
     internalID: 0
     vertices: []
     indices: 
