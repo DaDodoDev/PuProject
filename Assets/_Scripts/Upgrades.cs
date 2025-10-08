@@ -55,6 +55,16 @@ public class Upgrades : MonoBehaviour
                         player.GetComponent<playerStats>().shotGunLevel += (int)upgradeValue[whatUpgrade];
                         player.GetComponent<playerStats>().shootCooldown *= 1.5f;
                     }
+                    else if (whatUpgrade == 5)
+                    {
+                        player.GetComponent<playerStats>().sizeLevel += upgradeValue[whatUpgrade];
+                        float size = player.GetComponent<playerStats>().sizeLevel;
+                        player.transform.localScale =   new Vector3(size, size, size);
+                        player.GetComponent<playerStats>().maxHealth += (int)upgradeValue[0];
+                        player.GetComponent<playerHealthScript>().health += (int)upgradeValue[0];
+                        player.GetComponent<playerStats>().maxHealth += (int)upgradeValue[0];
+                        player.GetComponent<playerHealthScript>().health += (int)upgradeValue[0];
+                    }
                 }
     
                 
