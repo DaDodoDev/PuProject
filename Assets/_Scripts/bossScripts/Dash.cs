@@ -9,20 +9,28 @@ public class Dash : MonoBehaviour
 
     public float time;
 
+    public float timeBeforeDash;
+    public bool dash;
     public float timeBeforeReset;
     public bossStateMachine bossStateMachine;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
     {
         time = 0;
-        rb.linearVelocity = (player.position - transform.position).normalized * speed;
+        
         rb.linearDamping = 0;
+        dash = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
+        if (time >= timeBeforeDash && dash)
+        {
+            rb.linearVelocity = (player.position - transform.position).normalized * speed;
+            dash = false;
+        }
         if (time >= timeBeforeReset)
         {
             rb.linearDamping = 1;
