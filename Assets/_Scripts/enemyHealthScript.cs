@@ -3,8 +3,9 @@ using UnityEngine;
 public class enemyHealthScript : MonoBehaviour
 {
     public int health;
-
-
+    public bool boss;
+    public screenOverlay overlay;
+    public playerHealthScript playerHealthScript;
     public void TakeDamage(int damage)
     {
         
@@ -12,6 +13,11 @@ public class enemyHealthScript : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            if (boss)
+            {
+                overlay.turnSolid = true;
+                playerHealthScript.health = 10000;
+            }
         }
     }
 }

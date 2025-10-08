@@ -9,15 +9,19 @@ public class screenOverlay : MonoBehaviour
     
     public SpriteRenderer spriteRenderer;
 
-    public Image image;
+    public Image[] image;
 
-    public GameObject overlayButton;
-    public TMP_Text text;
+    public GameObject[] overlayButton;
+    public TMP_Text[] text;
     public float floatNow;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        overlayButton.SetActive(false);
+        for (int i = 0; i < overlayButton.Length; i++)
+        {
+            overlayButton[i].SetActive(false);
+        }
+        
     }
 
     // Update is called once per frame
@@ -25,12 +29,18 @@ public class screenOverlay : MonoBehaviour
     {
         if (turnSolid)
         {
-            overlayButton.SetActive(true);
             floatNow += howFastTurnSolid* Time.deltaTime;
+            for (int i = 0; i < overlayButton.Length; i++)
+            {
+                overlayButton[i].SetActive(true);
+                image[i].color = Color.Lerp( Color.clear, Color.white, floatNow);
+                text[i].color = Color.Lerp( Color.clear, Color.black, floatNow);
+            }
+            
+            
             
             spriteRenderer.color = Color.Lerp( Color.clear,Color.white, floatNow);
-            image.color = Color.Lerp( Color.clear, Color.white, floatNow);
-            text.color = Color.Lerp( Color.clear, Color.black, floatNow);
+            
         }
     }
 }
